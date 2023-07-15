@@ -47,6 +47,7 @@ export const authOptions = {
           return true // Do different verification for other providers that don't have `email_verified`
         },
       },
+      secret: process.env.SECRET,
     }),
     // DiscordProvider({
     //   clientId: process.env.DISCORD_CLIENT_ID,
