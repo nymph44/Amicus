@@ -16,13 +16,14 @@ export default function RootLayout({ children }) {
     <html
       className={`${inter.className} flex h-full scroll-smooth antialiased`}
       lang="en"
+      data-theme="synthwave"
     >
-      <body className="flex h-full flex-col w-full">
-        <Provider>
-          <Header />
-          {children}
-          <Footer />
-        </Provider>
+      <body className="flex h-full flex-col w-full from-base-100 to-base-200">
+        <Header />
+        <div className="flex flex-row space-x-4 mx-auto my-4  sm:w-full  md:w-2/3">
+          <div className="w-full ">{children}</div>
+        </div>
+        <Footer />
       </body>
     </html>
   )

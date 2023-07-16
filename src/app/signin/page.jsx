@@ -1,12 +1,11 @@
 'use client'
 import React from 'react'
-
+import GoogleButton from 'react-google-button'
 import { signIn } from 'next-auth/react'
 function page() {
   return (
     <div>
-      This is signin
-      <button onClick={() => signIn('google')}>Signin</button>
+      <GoogleButton onClick={() => signIn('google')} />
     </div>
   )
 }

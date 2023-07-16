@@ -15,6 +15,8 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from '@heroicons/react/20/solid'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const products = [
   {
@@ -60,17 +62,22 @@ function classNames(...classes) {
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
-    <header className="bg-white">
+    <header className="bg-base-200">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex pl-4 md:pl-0 md:w-2/3 items-center justify-between py-6"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="text-black">Amicus</span>
-          </a>
+          <Link href="/#" className="-m-1.5 p-1.5">
+            <Image
+              src="/png/logo-no-background.png"
+              width={100}
+              height={100}
+              alt="Amicus logo"
+            />
+          </Link>
         </div>
-        <div className="flex lg:hidden">
+        {/* <div className="flex lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -153,14 +160,18 @@ function Header() {
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Company
           </a>
-        </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+        </Popover.Group> */}
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
+          <Link href="/signup" className="hover:text-primary -m-1.5 p-1.5">
+            sign up <span aria-hidden="true">&rarr;</span>
+          </Link>
+          <span className="inline-flex rounded-md shadow-sm ml-4">|</span>
+          <Link href="/login" className="hover:text-primary -m-1.5 p-1.5">
             Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          </Link>
         </div>
       </nav>
-      <Dialog
+      {/* <Dialog
         as="div"
         className="lg:hidden"
         open={mobileMenuOpen}
@@ -247,7 +258,7 @@ function Header() {
             </div>
           </div>
         </Dialog.Panel>
-      </Dialog>
+      </Dialog> */}
     </header>
   )
 }
